@@ -34,7 +34,9 @@ ClaimSureAI helps **before and after** an insurance denial:
 
 ### Two agents, one knowledge graph
 
-![ClaimSureAI agent workflow: Risk Predictor hands off to Appeal Executor, which pauses at a human approval gate, files, and follows up on the payer response](assets/agent-flow-lb.png)
+<p align="center">
+  <img src="assets/agent-flow-tb.png" alt="ClaimSureAI agent workflow: Risk Predictor hands off to Appeal Executor, which pauses at a human approval gate, files, and follows up on the payer response" width="700">
+</p>
 
 Both agents are Jac **walkers** that read and write the same object-spatial graph, so context is never lost when a case moves from prediction to appeal.
 
