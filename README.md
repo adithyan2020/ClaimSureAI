@@ -1,4 +1,4 @@
-# ClaimSureAI
+# ClaimSure AI
 
 **Predicts health insurance denials, and fights the wrongful ones for you.**
 
