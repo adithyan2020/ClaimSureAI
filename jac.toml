@@ -7,8 +7,8 @@ kind = "web-app"
 
 [byllm]
 [byllm.model]
-default_model = "${LLM_MODEL:-gpt-4o-mini}"
-api_key = "${OPENAI_API_KEY:-}"
+default_model = "${LLM_MODEL:-gemini/gemini-3.8-flash}"
+api_key = "${GOOGLE_API_KEY:-}"
 
 
 [jac-shadcn]

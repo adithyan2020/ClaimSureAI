@@ -28,7 +28,7 @@ impl _days_until(date_str: str) -> int {
 }
 
 impl _has_llm -> bool {
-    key = os.environ.get("OPENAI_API_KEY", "") or os.environ.get("ANTHROPIC_API_KEY", "") or os.environ.get("GOOGLE_API_KEY", "");
+    key = os.environ.get("GOOGLE_API_KEY", "") or os.environ.get("OPENAI_API_KEY", "") or os.environ.get("ANTHROPIC_API_KEY", "");
     return len(key.strip()) > 8;
 }
 
