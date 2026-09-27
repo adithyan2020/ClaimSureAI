@@ -34,21 +34,7 @@ ClaimSureAI helps **before and after** an insurance denial:
 
 ### Two agents, one knowledge graph
 
-```mermaid
-flowchart LR
-    C[Claim] --> RP[Risk Predictor]
-    RP -->|low risk| L[Logged and watched]
-    RP -->|high risk, not filed| P[Prevent: fix top factor before filing]
-    RP -->|filed or denied| AE[Appeal Executor]
-    U[Uploaded denial letter] --> AE
-    AE --> G{{Human approval gate}}
-    G -->|approve| D[File, request records, notify, set follow-up timer]
-    G -->|edit / reject| AE
-    D --> T{Payer response}
-    T -->|overturned| W[Claim reprocessed]
-    T -->|upheld once| AE
-    T -->|upheld again or no reply| H[Escalate to a person for external review]
-```
+![ClaimSureAI agent workflow: Risk Predictor hands off to Appeal Executor, which pauses at a human approval gate, files, and follows up on the payer response](assets/agent-flow-lb.png)
 
 Both agents are Jac **walkers** that read and write the same object-spatial graph, so context is never lost when a case moves from prediction to appeal.
 
