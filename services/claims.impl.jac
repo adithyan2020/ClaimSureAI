@@ -863,7 +863,17 @@ impl extract_denial_letter(filename: str, mime: str, data_b64: str) -> DenialExt
     return _mock_extraction(filename);
 }
 
-impl open_upload_appeal(ext: DenialExtraction) -> str {
+impl open_upload_appeal(fields: dict) -> str {
+    ext = DenialExtraction(
+        patient_name=str(fields.get("patient_name", "") or ""), payer=str(fields.get("payer", "") or ""),
+        member_id=str(fields.get("member_id", "") or ""), claim_number=str(fields.get("claim_number", "") or ""),
+        denial_code=str(fields.get("denial_code", "") or ""), denial_reason=str(fields.get("denial_reason", "") or ""),
+        procedure=str(fields.get("procedure", "") or ""), condition=str(fields.get("condition", "") or ""),
+        date_of_service=str(fields.get("date_of_service", "") or ""), denial_date=str(fields.get("denial_date", "") or ""),
+        appeal_deadline=str(fields.get("appeal_deadline", "") or ""), amount=float(fields.get("amount", 0.0) or 0.0),
+        confidence=float(fields.get("confidence", 0.0) or 0.0), source=str(fields.get("source", "") or ""),
+        raw_text=str(fields.get("raw_text", "") or "")
+    );
     code = ext.denial_code.strip().upper();
     proc = ext.procedure or "Denied service";
     c = _new_claim(ext.patient_name or "Uploaded claim", ext.member_id, {

@@ -458,7 +458,7 @@ def:pub get_risk(claim_id: str) -> RiskResult | None;
 def:pub mark_denied(claim_id: str, denial_code: str) -> str;
 def:pub start_appeal(claim_id: str) -> str;
 def:pub extract_denial_letter(filename: str, mime: str, data_b64: str) -> DenialExtraction;
-def:pub open_upload_appeal(ext: DenialExtraction) -> str;
+def:pub open_upload_appeal(fields: dict) -> str;
 def:pub get_appeal(appeal_id: str) -> AppealView | None;
 def:pub save_letter(appeal_id: str, letter: str) -> AppealView | None;
 def:pub override_review(appeal_id: str) -> AppealView | None;

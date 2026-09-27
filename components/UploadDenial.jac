@@ -99,13 +99,10 @@ def:pub UploadDenial() -> JsxElement {
         }
         busy = True;
         base = ext as DenialExtraction;
-        payload = DenialExtraction(
-            patient_name=form["patient_name"], payer=form["payer"], member_id=form["member_id"],
-            claim_number=form["claim_number"], denial_code=form["denial_code"], denial_reason=form["denial_reason"],
-            procedure=form["procedure"], condition=form["condition"], date_of_service=form["date_of_service"],
-            denial_date=form["denial_date"], appeal_deadline=form["appeal_deadline"], amount=base.amount,
-            confidence=base.confidence, source=base.source, raw_text=base.raw_text
-        );
+        payload: dict = {
+            **form, "amount": base.amount, "confidence": base.confidence,
+            "source": base.source, "raw_text": base.raw_text
+        };
         try {
             aid = await open_upload_appeal(payload);
             nav(f"/appeals/{aid}");
